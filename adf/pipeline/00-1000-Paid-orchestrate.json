@@ -1,0 +1,76 @@
+{
+	"name": "00-1000-Paid-orchestrate",
+	"properties": {
+		"activities": [
+			{
+				"name": "Load_DZ_to_PZ-03-transformed",
+				"description": "Pro Kanal Paid - Daily/Total",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "03-1700-Paid-SoMe",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "PZ-03-transformed_Paid_Organic_Mapping",
+				"description": "Pro Kanal Paid Organic - Daily/Total",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Load_DZ_to_PZ-03-transformed",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "03-1800-Paid-Organic-SoMe",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "PZ-03-transformed_Paid_Organic_Consolidate",
+				"description": "Daily/Total Consolidate Paid Organic",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "PZ-03-transformed_Paid_Organic_Mapping",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "03-1900-Paid-Organic-SoMe_Consolidate",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"folder": {
+			"name": "00 Orchestrate"
+		},
+		"annotations": []
+	}
+}

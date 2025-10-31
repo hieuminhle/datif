@@ -1,0 +1,34 @@
+{
+	"name": "04-1200-GA4-Daily",
+	"properties": {
+		"activities": [
+			{
+				"name": "nb_ga4_daily",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": {
+						"value": "/Workspace/productzone-uk/04_toPowerBiMart/funnel/nb_power_bi_mart_ga4_eco_journal",
+						"type": "Expression"
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_DBW_JOB",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"folder": {
+			"name": "04 power bi mart"
+		},
+		"annotations": []
+	}
+}

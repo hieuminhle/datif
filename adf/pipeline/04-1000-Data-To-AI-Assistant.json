@@ -1,0 +1,94 @@
+{
+	"name": "04-1000-Data-To-AI-Assistant",
+	"properties": {
+		"activities": [
+			{
+				"name": "nb_write_data_to_ai_assistant",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": {
+						"value": "/Workspace/productzone-uk/04_toAiAssistant/nb_write_data_to_ai_assistant",
+						"type": "Expression"
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_DBW_JOB",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "nb_upload_client_files",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "nb_write_data_to_ai_assistant",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": {
+						"value": "/Workspace/productzone-uk/04_toAiAssistant/nb_update_client_files\n",
+						"type": "Expression"
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_DBW_JOB",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "nb_create_and_update_assistant",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "nb_upload_client_files",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": {
+						"value": "/Workspace/productzone-uk/04_toAiAssistant/nb_create_and_update_assistant",
+						"type": "Expression"
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_DBW_JOB",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"folder": {
+			"name": "04 ai assistant"
+		},
+		"annotations": []
+	}
+}

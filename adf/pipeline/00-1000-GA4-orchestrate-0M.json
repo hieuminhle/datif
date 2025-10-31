@@ -1,0 +1,91 @@
+{
+	"name": "00-1000-GA4-orchestrate-0M",
+	"properties": {
+		"activities": [
+			{
+				"name": "Update PowerBI Mart",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "03-1000-Eco-Journal-View",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "04-1200-GA4-Daily",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Update ICC Mart",
+				"type": "ExecutePipeline",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "04-1100-GA4-Daily",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "03-1000-Eco-Journal-View",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "02-1000-Eco-Journal-Content",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "03-1000-Eco-Journal-View",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "02-1000-Eco-Journal-Content",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "02-1000-Eco-Journal-Content",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"folder": {
+			"name": "00 Orchestrate"
+		},
+		"annotations": []
+	}
+}

@@ -1,0 +1,76 @@
+{
+	"name": "02-1100-Argus_Print_Media_Abstracts",
+	"properties": {
+		"activities": [
+			{
+				"name": "setvar_v_date",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "v_date",
+					"value": {
+						"value": "@formatDateTime(utcNow(), 'yyyy/MM/dd HH:mm:ss')",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "nb_02_cleaned_argus_print_abstracts",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "setvar_v_date",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": {
+						"value": "/Workspace/productzone-uk/02_toCleaned/argus/nb_cleaned_argus_print_abstracts",
+						"type": "Expression"
+					},
+					"baseParameters": {
+						"p_date": {
+							"value": "@variables('v_date')",
+							"type": "Expression"
+						}
+					},
+					"libraries": [
+						{
+							"pypi": {
+								"package": "openai==1.55.3"
+							}
+						}
+					]
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_DBW_JOB",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"variables": {
+			"v_date": {
+				"type": "String"
+			}
+		},
+		"folder": {
+			"name": "02 cleaned"
+		},
+		"annotations": []
+	}
+}

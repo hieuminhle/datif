@@ -1,0 +1,34 @@
+{
+	"name": "03-1000-Eco-Journal-View",
+	"properties": {
+		"activities": [
+			{
+				"name": "nb_transformed_eco_journal_view",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": {
+						"value": "/Workspace/productzone-uk/03_toTransformed/eco_journal/nb_transformed_eco_journal",
+						"type": "Expression"
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_DBW_JOB",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"folder": {
+			"name": "03 Transformed"
+		},
+		"annotations": []
+	}
+}

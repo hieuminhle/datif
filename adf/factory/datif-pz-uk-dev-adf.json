@@ -1,0 +1,12 @@
+{
+	"name": "datif-pz-uk-dev-adf",
+	"properties": {
+		"globalParameters": {
+			"env": {
+				"type": "string",
+				"value": "dev"
+			}
+		}
+	},
+	"location": "northeurope"
+}

@@ -1,0 +1,32 @@
+{
+	"name": "04-1300-Create_Search_Index",
+	"properties": {
+		"activities": [
+			{
+				"name": "nb_createSearchIndex",
+				"description": "create search index",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Workspace/productzone-uk/04_toAiMart/nb_searchIndex"
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_DBW_JOB_153",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"folder": {
+			"name": "04 ai mart"
+		},
+		"annotations": []
+	}
+}

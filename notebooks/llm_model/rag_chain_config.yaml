@@ -1,0 +1,5 @@
+llm_model_serving_endpoint_name: databricks-meta-llama-3-1-70b-instruct
+llm_prompt_template: 'You are an assistant that answers questions. Use the following pieces of retrieved context to answer the question. Some pieces of context may be irrelevant, in which case you should not use them to form the answer.\n\n'
+host: adb-3097416414063338.18.azuredatabricks.net
+warehouse_id: aee490a7de742538
+dbw-pz-catalog: datif_pz_uk_dev

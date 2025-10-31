@@ -1,0 +1,8 @@
+variables:
+  zone: productzone-uk #name for folder in databricks to copy nbs to - for example: test, datazone, ctife, ctifh, dist
+  rg: pz-uk #zone name of ressource group - for example: dz, pz-tife, pz-tifh, pz-dist
+  nb_dir: notebooks #direction of notebooks folder, should be on top level
+  fct_dir: pyspark_functions #directory of functions that should be build, should be on top level
+  version: '' #leave empty
+  adf_parameter: ''
+  adf_trigger: ''

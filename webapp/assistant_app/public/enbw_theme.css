@@ -1,0 +1,73 @@
+:root {
+    --primary-color: #000099;       /* EnBW-Blau */
+    --accent-color: #fe8f11;        /* EnBW-Orange */
+    --background-color: #f9f9f9;
+    --text-color: #1a1a1a;
+    --border-color: #e4dad4;
+  
+    /* Optional, für Tailwind-Fallbacks */
+    --primary: #0055A4;
+    --primary-foreground: #ffffff;
+    --accent: #fe8f11;
+    --accent-foreground: #000000;
+  }
+  
+/* Dark Theme */
+.dark {
+    --primary-color: #fe8f11;       /* EnBW-Orange */
+    --accent-color: #000099;        /* EnBW-Blau */
+    --background-color: #1a1a1a;
+    --text-color: #f9f9f9;
+    --border-color: #444444;
+  
+    --primary: #fe8f11;
+    --primary-foreground: #000000;
+    --accent: #000099;
+    --accent-foreground: #ffffff;
+  }
+
+
+  /* Grundlayout */
+  body {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+  }
+  
+  /* Buttons allgemein */
+  button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+  }
+  
+  /* Hover-Effekt für Buttons */
+  button:hover {
+    background-color: var(--background-color);
+    color: white;
+  }
+  
+  /* Spezieller Avatar/User-Button oben rechts */
+  button > span > span {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+  }
+  
+  /* Avatar/User-Button Hover */
+  button:hover > span > span {
+    background-color: var(--background-color) !important;
+    color: white !important;
+  }
+  
+  /* Upload-/Attachment-Icon */
+  .attachment-icon {
+    color: var(--primary-color) !important;
+  }
+  
+  /* Optional: Tailwind Utility Overrides */
+  .bg-primary {
+    background-color: var(--primary-color) !important;
+  }
+  .text-primary-foreground {
+    color: white !important;
+  }
+  

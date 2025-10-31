@@ -1,0 +1,45 @@
+{
+	"name": "04-1100-Argus_Media_daily_update",
+	"properties": {
+		"activities": [
+			{
+				"name": "nb_04_icc_argus_daily_update",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": {
+						"value": "/Workspace/productzone-uk/04_toIccMart/argus/nb_icc_mart_argus_daily",
+						"type": "Expression"
+					},
+					"baseParameters": {
+						"p_date": {
+							"value": "@variables('v_date')",
+							"type": "Expression"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_DBW_JOB",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"variables": {
+			"v_date": {
+				"type": "String"
+			}
+		},
+		"folder": {
+			"name": "04 icc mart"
+		},
+		"annotations": []
+	}
+}

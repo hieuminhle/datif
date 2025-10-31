@@ -1,0 +1,242 @@
+{
+	"name": "03-1100-Funnel_SoMe_daily_parallel",
+	"properties": {
+		"activities": [
+			{
+				"name": "nb_instagram",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": {
+						"value": "/Workspace/productzone-uk/03_toTransformed/funnel/nb_transformed_instagram_tables_total",
+						"type": "Expression"
+					},
+					"baseParameters": {
+						"p_limit_n": {
+							"value": "@pipeline().parameters.p_limit_n",
+							"type": "Expression"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_DBW_JOB_153",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "nb_youtube",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": {
+						"value": "/Workspace/productzone-uk/03_toTransformed/funnel/nb_transformed_youtube_tables_total",
+						"type": "Expression"
+					},
+					"baseParameters": {
+						"p_limit_n": {
+							"value": "@pipeline().parameters.p_limit_n",
+							"type": "Expression"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_DBW_JOB_153",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "nb_x",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": {
+						"value": "/Workspace/productzone-uk/03_toTransformed/funnel/nb_transformed_x_tables_total",
+						"type": "Expression"
+					},
+					"baseParameters": {
+						"p_limit_n": {
+							"value": "@pipeline().parameters.p_limit_n",
+							"type": "Expression"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_DBW_JOB_153",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "nb_facebook",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": {
+						"value": "/Workspace/productzone-uk/03_toTransformed/funnel/nb_transformed_facebook_tables_total",
+						"type": "Expression"
+					},
+					"baseParameters": {
+						"p_limit_n": {
+							"value": "@pipeline().parameters.p_limit_n",
+							"type": "Expression"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_DBW_JOB_153",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "nb_linkedin",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": {
+						"value": "/Workspace/productzone-uk/03_toTransformed/funnel/nb_transformed_linkedin_tables_total",
+						"type": "Expression"
+					},
+					"baseParameters": {
+						"p_limit_n": {
+							"value": "@pipeline().parameters.p_limit_n",
+							"type": "Expression"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_DBW_JOB_153",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "wait_dummyForSuccess5",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "nb_linkedin",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			},
+			{
+				"name": "wait_dummyForSuccess4",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "nb_facebook",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			},
+			{
+				"name": "wait_dummyForSuccess3",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "nb_x",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			},
+			{
+				"name": "wait_dummyForSuccess2",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "nb_youtube",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			},
+			{
+				"name": "wait_dummyForSuccess1",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "nb_instagram",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			}
+		],
+		"parameters": {
+			"p_limit_n": {
+				"type": "string",
+				"defaultValue": "10"
+			}
+		},
+		"folder": {
+			"name": "03 Transformed"
+		},
+		"annotations": []
+	}
+}

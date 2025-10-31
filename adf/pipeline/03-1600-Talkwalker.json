@@ -1,0 +1,31 @@
+{
+	"name": "03-1600-Talkwalker",
+	"properties": {
+		"activities": [
+			{
+				"name": "nb_transformed_talkwalker_data",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/productzone-uk/03_toTransformed/talkwalker/nb_transformed_talkwalker_hieu"
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_DBW_JOB",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"folder": {
+			"name": "03 Transformed"
+		},
+		"annotations": []
+	}
+}

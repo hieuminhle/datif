@@ -1,0 +1,41 @@
+{
+	"name": "02-1000-Eco-Journal-Content",
+	"properties": {
+		"activities": [
+			{
+				"name": "nb_eco_journal_content",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": {
+						"value": "/Workspace/productzone-uk/02_toCleaned/eco_journal/nb_cleaned_eco_journal",
+						"type": "Expression"
+					},
+					"libraries": [
+						{
+							"maven": {
+								"coordinates": "com.crealytics:spark-excel_2.12:3.4.1_0.19.0"
+							}
+						}
+					]
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_DBW_JOB",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"folder": {
+			"name": "02 cleaned"
+		},
+		"annotations": []
+	}
+}

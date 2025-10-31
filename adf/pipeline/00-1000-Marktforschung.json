@@ -1,0 +1,96 @@
+{
+	"name": "00-1000-Marktforschung",
+	"properties": {
+		"activities": [
+			{
+				"name": "Load_Blob_to_PZ-02-cleaned",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "02-1300-Marktforschung",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Load_PZ-02_to_PZ-03-transformed",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Load_Blob_to_PZ-02-cleaned",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "03-1800-Marktforschung_transformed",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Load_PZ-03-transformed_to_consolidate",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Load_PZ-02_to_PZ-03-transformed",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "03-1900-Marktforschung_consolidate",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Load_PZ-03-consolidate_to_PZ-04-PowerBIMart",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Load_PZ-03-transformed_to_consolidate",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "04-1300-Marktforschung",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"folder": {
+			"name": "00 Orchestrate"
+		},
+		"annotations": []
+	}
+}

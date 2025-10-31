@@ -1,0 +1,123 @@
+{
+	"name": "03-1800-Paid-Organic-SoMe",
+	"properties": {
+		"description": "hier werden die Paid Organic SoMe Daten gemappt",
+		"activities": [
+			{
+				"name": "nb_transformed_paid_organic_meta",
+				"description": "",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Workspace/productzone-uk/03_toTransformed/funnel/nb_transformed_paid_organic_meta"
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_DBW_JOB_153",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "nb_transformed_paid_organic_linkedIn",
+				"description": "",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Workspace/productzone-uk/03_toTransformed/funnel/nb_transformed_paid_organic_linkedIn"
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_DBW_JOB_153",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "nb_transformed_paid_organic_youtube",
+				"description": "",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Workspace/productzone-uk/03_toTransformed/funnel/nb_transformed_paid_organic_youtube"
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_DBW_JOB_153",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "wait_dummyForSuccess1_copy",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "nb_transformed_paid_organic_linkedIn",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			},
+			{
+				"name": "wait_dummyForSuccess1_copy2",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "nb_transformed_paid_organic_youtube",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			},
+			{
+				"name": "wait_dummyForSuccess1",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "nb_transformed_paid_organic_meta",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			}
+		],
+		"folder": {
+			"name": "03 Transformed"
+		},
+		"annotations": []
+	}
+}

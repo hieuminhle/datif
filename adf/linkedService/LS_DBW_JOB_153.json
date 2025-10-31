@@ -1,0 +1,38 @@
+{
+	"name": "LS_DBW_JOB_153",
+	"properties": {
+		"type": "AzureDatabricks",
+		"annotations": [],
+		"typeProperties": {
+			"domain": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "LS_KV",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "dbw-workspace-url"
+			},
+			"authentication": "MSI",
+			"workspaceResourceId": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "LS_KV",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "dbw-resource-id"
+			},
+			"newClusterNodeType": "Standard_DS5_v2",
+			"newClusterNumOfWorker": "1:4",
+			"newClusterSparkConf": {
+				"spark.databricks.delta.logStore.crossCloud.fatal": "false"
+			},
+			"newClusterSparkEnvVars": {
+				"PYSPARK_PYTHON": "/databricks/python3/bin/python3"
+			},
+			"newClusterVersion": "15.4.x-scala2.12",
+			"clusterOption": "Fixed",
+			"newClusterInitScripts": []
+		}
+	}
+	
+}

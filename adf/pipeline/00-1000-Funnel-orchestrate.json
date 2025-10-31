@@ -1,0 +1,217 @@
+{
+	"name": "00-1000-Funnel-orchestrate",
+	"properties": {
+		"activities": [
+			{
+				"name": "Load_DZ_to_PZ-03-transformed",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "03-1100-Funnel_SoMe_daily_parallel",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true,
+					"parameters": {
+						"p_limit_n": "10"
+					}
+				}
+			},
+			{
+				"name": "Load_PZ-03-transformed_to_PZ-04-icc-mart",
+				"type": "ExecutePipeline",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
+				"dependsOn": [
+					{
+						"activity": "Load_DZ_to_PZ-03-transformed",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "04-1100-Funnel_SoMe_daily_update",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Load_PZ-03-transformed_to_PZ-04-powerbi_mart_daily",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "03-1150b-Funnel_SoMe_daily_consolidate_update",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "04-1200-Funnel_SoMe_daily_update",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "exec_04-ai-CreateSearchVector",
+				"description": "asdf",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Load_DZ_to_PZ-03-transformed",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "04-1300-Create_Search_Index",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "03-1400-Consolidated-Socials",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "exec_04-ai-CreateSearchVector",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "03-1400-Consolidated-Socials",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "04-1000-Data-To-AI-Assistant",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "03-1400-Consolidated-Socials",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "04-1000-Data-To-AI-Assistant",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "03-1500-Funnel-Update-Daily-Views",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "03-1150a-Funnel_SoMe_daily_meta_update",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "03-1500-Funnel-Update-Daily-Views",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "03-1150a-Funnel_SoMe_daily_meta_update",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Load_DZ_to_PZ-03-transformed",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "03-1150a-Funnel_SoMe_daily_meta_update",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "03-1150b-Funnel_SoMe_daily_consolidate_update",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "03-1150a-Funnel_SoMe_daily_meta_update",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "03-1150b-Funnel_SoMe_daily_consolidate_update",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"folder": {
+			"name": "00 Orchestrate"
+		},
+		"annotations": []
+	}
+}

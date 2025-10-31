@@ -1,0 +1,47 @@
+{
+	"name": "03-1150a-Funnel_SoMe_daily_meta_update",
+	"properties": {
+		"description": "Die drei meta daily Tabellen werden in 03 aktualisiert",
+		"activities": [
+			{
+				"name": "nb_transformed_meta_daily",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": {
+						"value": "/Workspace/productzone-uk/03_toTransformed/funnel/nb_transformed_meta_daily",
+						"type": "Expression"
+					},
+					"baseParameters": {
+						"p_limit_n": {
+							"value": "@pipeline().parameters.p_limit_n",
+							"type": "Expression"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_DBW_JOB_153",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"parameters": {
+			"p_limit_n": {
+				"type": "string",
+				"defaultValue": "10"
+			}
+		},
+		"folder": {
+			"name": "03 Transformed"
+		},
+		"annotations": []
+	}
+}

@@ -1,0 +1,19 @@
+{
+	"name": "GA4_009_storage_event_trigger-prod",
+	"properties": {
+		"description": "Die Pipeline wird getriggert, wenn in der Source ein File im dev container hinzugefügt wird.",
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/02-cleaned-uk/blobs/funnel/009_ga4",
+			"blobPathEndsWith": ".parquet",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/09b456a2-cf43-4d74-be5c-7d892d87207b/resourceGroups/datif-dz-prod-rg/providers/Microsoft.Storage/storageAccounts/datifdzprodstdfs",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}

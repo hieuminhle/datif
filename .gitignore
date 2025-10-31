@@ -1,0 +1,7 @@
+**/.venv/
+**/venv/
+**/.venv1/
+**/__pycache__/
+**/*.csv
+/webapp/chatbot_app/env
+/webapp/assistant_app/.env

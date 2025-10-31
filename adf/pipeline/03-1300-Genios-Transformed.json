@@ -1,0 +1,42 @@
+{
+	"name": "03-1300-Genios-Transformed",
+	"properties": {
+		"activities": [
+			{
+				"name": "nb_geniosToTransformed",
+				"description": "notebook",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": {
+						"value": "/Workspace/productzone-uk/03_toTransformed/genios/nb_transformed_genios",
+						"type": "Expression"
+					},
+					"libraries": [
+						{
+							"pypi": {
+								"package": "openai==1.55.3"
+							}
+						}
+					]
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_DBW_JOB",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"folder": {
+			"name": "03 Transformed"
+		},
+		"annotations": []
+	}
+}

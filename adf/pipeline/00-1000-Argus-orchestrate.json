@@ -1,0 +1,133 @@
+{
+	"name": "00-1000-Argus-orchestrate",
+	"properties": {
+		"activities": [
+			{
+				"name": "if_devEnvironment",
+				"type": "IfCondition",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@equals(pipeline().globalParameters.env, 'dev')",
+						"type": "Expression"
+					},
+					"ifTrueActivities": [
+						{
+							"name": "03_Load_DZ_to_PZ-03-transformed",
+							"type": "ExecutePipeline",
+							"dependsOn": [
+								{
+									"activity": "03_transformed_Print_Media_Abstracts",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"pipeline": {
+									"referenceName": "03-1200-Argus_Media_daily_update",
+									"type": "PipelineReference"
+								},
+								"waitOnCompletion": true
+							}
+						},
+						{
+							"name": "04_Load_PZ-03-transformed_to_PZ-04-icc-mart",
+							"type": "ExecutePipeline",
+							"dependsOn": [
+								{
+									"activity": "03_Load_DZ_to_PZ-03-transformed",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"pipeline": {
+									"referenceName": "04-1100-Argus_Media_daily_update",
+									"type": "PipelineReference"
+								},
+								"waitOnCompletion": true
+							}
+						},
+						{
+							"name": "01_raw_Print_Media_Volltexte",
+							"type": "ExecutePipeline",
+							"dependsOn": [],
+							"policy": {
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"pipeline": {
+									"referenceName": "01-1100-Argus_Print_Media_Volltexte",
+									"type": "PipelineReference"
+								},
+								"waitOnCompletion": true
+							}
+						},
+						{
+							"name": "02_cleaned_Print_Media_Abstracts",
+							"type": "ExecutePipeline",
+							"dependsOn": [
+								{
+									"activity": "01_raw_Print_Media_Volltexte",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"pipeline": {
+									"referenceName": "02-1100-Argus_Print_Media_Abstracts",
+									"type": "PipelineReference"
+								},
+								"waitOnCompletion": true
+							}
+						},
+						{
+							"name": "03_transformed_Print_Media_Abstracts",
+							"type": "ExecutePipeline",
+							"dependsOn": [
+								{
+									"activity": "02_cleaned_Print_Media_Abstracts",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"pipeline": {
+									"referenceName": "03-1100-Argus_Print_Media_Abstracts",
+									"type": "PipelineReference"
+								},
+								"waitOnCompletion": true
+							}
+						}
+					]
+				}
+			}
+		],
+		"folder": {
+			"name": "00 Orchestrate"
+		},
+		"annotations": []
+	}
+}

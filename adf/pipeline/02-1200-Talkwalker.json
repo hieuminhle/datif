@@ -1,0 +1,31 @@
+{
+	"name": "02-1200-Talkwalker",
+	"properties": {
+		"activities": [
+			{
+				"name": "nb_cleaned_talkwalker_data",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/productzone-uk/02_toCleaned/talkwalker/nb_cleaned_talkwalker_hieu"
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_DBW_JOB",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"folder": {
+			"name": "02 cleaned"
+		},
+		"annotations": []
+	}
+}
