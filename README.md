@@ -1,8 +1,8 @@
 # Project DaTIF
 
-### Architecture
+### Architecture of the Data Platform
 
-![Architecture](Overall Architecture of the Data Platform.png)
+![Architecture](overall-architecture.png)
 
 This repository is meant as an exemplary repository to fork before starting your own project. You have a fixed top-folder structure with generic yaml files in each subfolder to link to a pipeline. You might add folders, if you add ressources to your ressource group. For example, if you add azure functions to your ressource group, you might add a folder functions and start your development and deployment from there.
 
