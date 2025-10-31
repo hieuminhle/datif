@@ -26,19 +26,19 @@
 # MAGIC * Versionen (aktuelle immer oben):
 # MAGIC - 25.09.2025 Minh Hieu Le: Sicherstellen, dass in den Zahlenspalten keine Nullwerte stehen, sondern stattdessen Nullen
 # MAGIC - 04.09.2025 Minh Hieu Le: Löschen von Codezellen, die einzelnen Tabellen für jedes Kanal schreiben
-# MAGIC - 16.07.2025 Justin Stange-Heiduk: Add datif_pz_uk_{env}.
-# MAGIC - 25.06.2025 Justin Stange-Heiduk: Youtube Owner Spalte hinzugefügt
-# MAGIC - 11.06.2025 Justin Stange-Heiduk: SoMe Daily Consolidated hinzugefügt
-# MAGIC - 12.05.2025 Justin Stange-Heiduk: LinkedIn Consolidated hinzugefügt
-# MAGIC - 07.05.2025 Justin Stange-Heiduk: Instagram API Änderung Impression -> Views
+# MAGIC - 16.07.2025 Max Mustermann: Add datif_pz_uk_{env}.
+# MAGIC - 25.06.2025 Max Mustermann: Youtube Owner Spalte hinzugefügt
+# MAGIC - 11.06.2025 Max Mustermann: SoMe Daily Consolidated hinzugefügt
+# MAGIC - 12.05.2025 Max Mustermann: LinkedIn Consolidated hinzugefügt
+# MAGIC - 07.05.2025 Max Mustermann: Instagram API Änderung Impression -> Views
 # MAGIC - 06.05.2025 Minh Hieu Le: Bei Youtube VideoURL mit selektiert
-# MAGIC - 18.03.2025 Svenja Schuder: Diff Spalte für Meta hinzugefügt
-# MAGIC - 13.02.2025 Svenja Schuder: Schema Updates
-# MAGIC - 06.02.2025 Svenja Schuder: Unity Catalog als Variable hinzugefügt
-# MAGIC - 03.12.2024 Svenja Schuder: Schemabereinigungen
-# MAGIC - 16.12.2024 Svenja Schuder: update ig stories table
-# MAGIC - 28.11.2024 Svenja Schuder: Schemaänderung + Upsert Methode zu Overwrite geändert + instagram_stories und youtube hinzugefügt
-# MAGIC - 13.11.2024 Svenja Schuder: init
+# MAGIC - 18.03.2025 Max Mustermann: Diff Spalte für Meta hinzugefügt
+# MAGIC - 13.02.2025 Max Mustermann: Schema Updates
+# MAGIC - 06.02.2025 Max Mustermann: Unity Catalog als Variable hinzugefügt
+# MAGIC - 03.12.2024 Max Mustermann: Schemabereinigungen
+# MAGIC - 16.12.2024 Max Mustermann: update ig stories table
+# MAGIC - 28.11.2024 Max Mustermann: Schemaänderung + Upsert Methode zu Overwrite geändert + instagram_stories und youtube hinzugefügt
+# MAGIC - 13.11.2024 Max Mustermann: init
 # MAGIC
 
 # COMMAND ----------

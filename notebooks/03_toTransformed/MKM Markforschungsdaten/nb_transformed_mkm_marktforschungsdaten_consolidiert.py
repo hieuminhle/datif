@@ -10,21 +10,21 @@
 # MAGIC * QUELLEN:  
 # MAGIC - datif_pz_uk_{}.02_cleaned.mkm_gestuetzte_markenbekanntheit(_bawue)
 # MAGIC - datif_pz_uk_{}.02_cleaned.mkm_reputationsindex(_bawue)
-# MAGIC - datif_pz_uk_{}.02_cleaned.mkm_ungestuetzte_enbw_themen.csv(_bawue)
+# MAGIC - datif_pz_uk_{}.02_cleaned.mkm_ungestuetzte_A_themen.csv(_bawue)
 # MAGIC - datif_pz_uk_{}.02_cleaned.mkm_ungestuetzte_energie_themen(_bawue)
 # MAGIC - datif_pz_uk_{}.02_cleaned.mkm_ungestuetzte_markenbekanntheit(_bawue)
 # MAGIC
 # MAGIC * ZIEL:  
 # MAGIC - datif_pz_uk_{}.03_cleaned.mkm_gestuetzte_markenbekanntheit(_bawue)
 # MAGIC - datif_pz_uk_{}.03_cleaned.mkm_reputationsindex(_bawue)
-# MAGIC - datif_pz_uk_{}.03_cleaned.mkm_ungestuetzte_enbw_themen(_bawue)
+# MAGIC - datif_pz_uk_{}.03_cleaned.mkm_ungestuetzte_A_themen(_bawue)
 # MAGIC - datif_pz_uk_{}.03_cleaned.mkm_ungestuetzte_energie_themen(_bawue)
 # MAGIC - datif_pz_uk_{}.03_cleaned.mkm_ungestuetzte_markenbekanntheit(_bawue)
 # MAGIC
 # MAGIC
 # MAGIC ---
 # MAGIC * Versionen (aktuelle immer oben):
-# MAGIC - 19.06.2025 Justin Stange-Heiduk: init
+# MAGIC - 19.06.2025 Max Mustermann: init
 
 # COMMAND ----------
 
@@ -49,8 +49,8 @@ table_names = [
     "mkm_gestuetzte_markenbekanntheit_bawue",
     "mkm_reputationsindex",
     "mkm_reputationsindex_bawue",
-    "mkm_ungestuetzte_enbw_themen",
-    "mkm_ungestuetzte_enbw_themen_bawue",
+    "mkm_ungestuetzte_A_themen",
+    "mkm_ungestuetzte_A_themen_bawue",
     "mkm_ungestuetzte_energie_themen",
     "mkm_ungestuetzte_energie_themen_bawue",
     "mkm_ungestuetzte_markenbekanntheit",
@@ -62,8 +62,8 @@ Mapping_dict = {
     "mkm_reputationsindex_bawue" : ["Reputationsindex", "Baden-Württemberg", "Existier nicht"],
     "mkm_gestuetzte_markenbekanntheit":  ["Markenbekanntheit", "National", "Gestützt"],
     "mkm_gestuetzte_markenbekanntheit_bawue":  ["Markenbekanntheit", "Baden-Württemberg", "Gestützt"],
-    "mkm_ungestuetzte_enbw_themen":  ["EnBW Themen", "National", "Ungestützt"],
-    "mkm_ungestuetzte_enbw_themen_bawue": ["EnBW Themen", "Baden-Württemberg", "Ungestützt"],
+    "mkm_ungestuetzte_A_themen":  ["A Themen", "National", "Ungestützt"],
+    "mkm_ungestuetzte_A_themen_bawue": ["A Themen", "Baden-Württemberg", "Ungestützt"],
     "mkm_ungestuetzte_energie_themen":  ["Energie Themen", "National", "Ungestützt"],
     "mkm_ungestuetzte_energie_themen_bawue": ["Energie Themen","Baden-Württemberg", "Ungestützt"],
     "mkm_ungestuetzte_markenbekanntheit":  ["Markenbekanntheit", "National", "Ungestützt"],

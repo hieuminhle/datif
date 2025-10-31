@@ -77,7 +77,7 @@ if "AZURE_OPENAI_API_KEY_PROD" not in os.environ:
 # COMMAND ----------
 
 llm_model = AzureChatOpenAI(
-    base_url="https://api.competence-cente-cc-genai-prod.enbw-az.cloud/openai/deployments/gpt-4o",
+    base_url="https://api.competence-cente-cc-genai-prod.A-az.cloud/openai/deployments/gpt-4o",
     openai_api_version="2024-06-01",
     api_key=os.environ["AZURE_OPENAI_API_KEY_PROD"],
     temperature=0.0, # 0 versuchen 0.2 vorher
@@ -221,9 +221,9 @@ Table: facebook_organic_total
   Column: ErneuerbareEnergien, Type: BooleanType()
   Column: DisponibleErzeugung, Type: BooleanType()
   Column: IntelligenteStromnetze, Type: BooleanType()
-  Column: EnBWAlsArbeitgeberIn, Type: BooleanType()
+  Column: AAlsArbeitgeberIn, Type: BooleanType()
   Column: NachhaltigkeitCSRESG, Type: BooleanType()
-  Column: MarkeEnBW, Type: BooleanType()
+  Column: MarkeA, Type: BooleanType()
 
 Table: ga4_daily
   Column: Date, Type: DateType()
@@ -303,9 +303,9 @@ Table: instagram_organic_total
   Column: ErneuerbareEnergien, Type: BooleanType()
   Column: DisponibleErzeugung, Type: BooleanType()
   Column: IntelligenteStromnetze, Type: BooleanType()
-  Column: EnBWAlsArbeitgeberIn, Type: BooleanType()
+  Column: AAlsArbeitgeberIn, Type: BooleanType()
   Column: NachhaltigkeitCSRESG, Type: BooleanType()
-  Column: MarkeEnBW, Type: BooleanType()
+  Column: MarkeA, Type: BooleanType()
 
 Table: linkedin_organic_total
   Column: PostID, Type: StringType()
@@ -337,9 +337,9 @@ Table: linkedin_organic_total
   Column: ErneuerbareEnergien, Type: BooleanType()
   Column: DisponibleErzeugung, Type: BooleanType()
   Column: IntelligenteStromnetze, Type: BooleanType()
-  Column: EnBWAlsArbeitgeberIn, Type: BooleanType()
+  Column: AAlsArbeitgeberIn, Type: BooleanType()
   Column: NachhaltigkeitCSRESG, Type: BooleanType()
-  Column: MarkeEnBW, Type: BooleanType()
+  Column: MarkeA, Type: BooleanType()
 
 Table: linkedin_organic_video_total
   Column: VideoID, Type: StringType()
@@ -377,9 +377,9 @@ Table: linkedin_organic_video_total
   Column: ErneuerbareEnergien, Type: BooleanType()
   Column: DisponibleErzeugung, Type: BooleanType()
   Column: IntelligenteStromnetze, Type: BooleanType()
-  Column: EnBWAlsArbeitgeberIn, Type: BooleanType()
+  Column: AAlsArbeitgeberIn, Type: BooleanType()
   Column: NachhaltigkeitCSRESG, Type: BooleanType()
-  Column: MarkeEnBW, Type: BooleanType()
+  Column: MarkeA, Type: BooleanType()
 
 Table: marktforschung
   Column: Breite_Öffentlichkeit_BaWü, Type: StringType()
@@ -464,9 +464,9 @@ Table: x_organic_total
   Column: ErneuerbareEnergien, Type: BooleanType()
   Column: DisponibleErzeugung, Type: BooleanType()
   Column: IntelligenteStromnetze, Type: BooleanType()
-  Column: EnBWAlsArbeitgeberIn, Type: BooleanType()
+  Column: AAlsArbeitgeberIn, Type: BooleanType()
   Column: NachhaltigkeitCSRESG, Type: BooleanType()
-  Column: MarkeEnBW, Type: BooleanType()
+  Column: MarkeA, Type: BooleanType()
 
 
 
@@ -582,7 +582,7 @@ model_config = mlflow.models.ModelConfig(development_config="rag_chain_config.ya
 # COMMAND ----------
 
 prompt_sql = ChatPromptTemplate.from_messages([("system", '''
-Du bist ein Datenanalyst in der Kommunikationsabteilung der deutschen Energiefirma EnBW. Deine Aufgabe ist es, die Leistung und Wirkung der Kommunikationsmaßnahmen datenbasiert zu bewerten und zu veranschaulichen. Nutze geeignete Tools und präzise Abfragen, um relevante Einblicke zu liefern.
+Du bist ein Datenanalyst in der Kommunikationsabteilung der deutschen Energiefirma A. Deine Aufgabe ist es, die Leistung und Wirkung der Kommunikationsmaßnahmen datenbasiert zu bewerten und zu veranschaulichen. Nutze geeignete Tools und präzise Abfragen, um relevante Einblicke zu liefern.
 
 ### Anforderungen
 
@@ -697,7 +697,7 @@ def sql_runnable(input):
     """ create sql agent """
 
     llm_model = AzureChatOpenAI(
-        base_url="https://api.competence-cente-cc-genai-prod.enbw-az.cloud/openai/deployments/gpt-4o",
+        base_url="https://api.competence-cente-cc-genai-prod.A-az.cloud/openai/deployments/gpt-4o",
         openai_api_version="2024-06-01",
         api_key=os.environ["AZURE_OPENAI_API_KEY_PROD"],
         temperature=0.0, # 0 versuchen 0.2 vorher

@@ -78,7 +78,7 @@ if "AZURE_OPENAI_API_KEY_PROD" not in os.environ:
 # COMMAND ----------
 
 prompt = ChatPromptTemplate.from_messages([("system", '''
-Du bist ein Datenanalyst in der Kommunikationsabteilung der deutschen Energiefirma EnBW. Deine Aufgabe ist es, die Leistung und Wirkung der Kommunikationsmaßnahmen datenbasiert zu bewerten und zu veranschaulichen. Nutze geeignete Tools und präzise Abfragen, um relevante Einblicke zu liefern.
+Du bist ein Datenanalyst in der Kommunikationsabteilung der deutschen Energiefirma A. Deine Aufgabe ist es, die Leistung und Wirkung der Kommunikationsmaßnahmen datenbasiert zu bewerten und zu veranschaulichen. Nutze geeignete Tools und präzise Abfragen, um relevante Einblicke zu liefern.
 
 ### Anforderungen
 
@@ -248,7 +248,7 @@ def sql_runnable(input):
     """ create sql agent """
 
     llm_model = AzureChatOpenAI(
-        base_url="https://api.competence-cente-cc-genai-prod.enbw-az.cloud/openai/deployments/gpt-4o",
+        base_url="https://api.competence-cente-cc-genai-prod.A-az.cloud/openai/deployments/gpt-4o",
         openai_api_version="2024-06-01",
         api_key=os.environ["AZURE_OPENAI_API_KEY_PROD"],
         temperature=0.0, # 0 versuchen 0.2 vorher

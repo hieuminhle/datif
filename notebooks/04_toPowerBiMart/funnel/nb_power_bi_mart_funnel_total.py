@@ -30,19 +30,19 @@
 # MAGIC
 # MAGIC ---
 # MAGIC * Versionen (aktuelle immer oben):
-# MAGIC 16.07.2025 Justin Stange-Heiduk: Add datif_pz_uk_{env}.
-# MAGIC - 25.06.2025 JUstin Stange-Heiduk: Youtube Owner Spalte hinzugefügt
-# MAGIC - 27.05.2025 Justin Stange-Heiduk: Youtube Themenbereiche hinzugefügt, Performancekultur entfernt
-# MAGIC - 12.05.2025 Justin Stange-Heiduk: LinkedIn Consolidated hinzufügen
-# MAGIC - 07.05.2025 Justin Stange-Heiduk: Instagram API Änderung Impression -> Views
+# MAGIC 16.07.2025 Max Mustermann: Add datif_pz_uk_{env}.
+# MAGIC - 25.06.2025 Max Mustermann: Youtube Owner Spalte hinzugefügt
+# MAGIC - 27.05.2025 Max Mustermann: Youtube Themenbereiche hinzugefügt, Performancekultur entfernt
+# MAGIC - 12.05.2025 Max Mustermann: LinkedIn Consolidated hinzufügen
+# MAGIC - 07.05.2025 Max Mustermann: Instagram API Änderung Impression -> Views
 # MAGIC - 06.05.2025 Minh Hieu Le: Bei YouTube VideoURL mit selektiert
-# MAGIC - 13.02.2025 Svenja Schuder: Schema Updates
-# MAGIC - 06.02.2025 Svenja Schuder: Unity Catalog als Variable hinzugefügt
-# MAGIC - 06.12.2024 Svenja Schuder: C-Level-Tagging hinzugefügt
-# MAGIC - 03.12.2024 Svenja Schuder: Schemabereinigungen
-# MAGIC - 16.12.2024 Svenja Schuder: update ig stories table   
-# MAGIC - 28.11.2024 Svenja Schuder: Schemaänderung + Upsert Methode zu Overwrite geändert + instagram_stories und youtube hinzugefügt
-# MAGIC - 13.11.2024 Svenja Schuder: init
+# MAGIC - 13.02.2025 Max Mustermann: Schema Updates
+# MAGIC - 06.02.2025 Max Mustermann: Unity Catalog als Variable hinzugefügt
+# MAGIC - 06.12.2024 Max Mustermann: C-Level-Tagging hinzugefügt
+# MAGIC - 03.12.2024 Max Mustermann: Schemabereinigungen
+# MAGIC - 16.12.2024 Max Mustermann: update ig stories table   
+# MAGIC - 28.11.2024 Max Mustermann: Schemaänderung + Upsert Methode zu Overwrite geändert + instagram_stories und youtube hinzugefügt
+# MAGIC - 13.11.2024 Max Mustermann: init
 
 # COMMAND ----------
 
@@ -130,9 +130,9 @@ df_facebook_total = spark.sql(f"""
                                     -- IF(ErneuerbareEnergien >= {strategic_areas_threshold}, TRUE, FALSE) AS ErneuerbareEnergien,
                                     -- IF(DisponibleErzeugung >= {strategic_areas_threshold}, TRUE, FALSE) AS DisponibleErzeugung,
                                     -- IF(IntelligenteStromnetze >= {strategic_areas_threshold}, TRUE, FALSE) AS IntelligenteStromnetze,
-                                    -- IF(EnBWAlsArbeitgeberIn >= {strategic_areas_threshold}, TRUE, FALSE) AS EnBWAlsArbeitgeberIn,
+                                    -- IF(AAlsArbeitgeberIn >= {strategic_areas_threshold}, TRUE, FALSE) AS AAlsArbeitgeberIn,
                                     -- IF(NachhaltigkeitCSRESG >= {strategic_areas_threshold}, TRUE, FALSE) AS NachhaltigkeitCSRESG,
-                                    -- IF(MarkeEnBW >= {strategic_areas_threshold}, TRUE, FALSE) AS MarkeEnBW
+                                    -- IF(MarkeA >= {strategic_areas_threshold}, TRUE, FALSE) AS MarkeA
                                     Strategie2030,
                                     FinanzierungEnergiewende,
                                     EMobilitaet,
@@ -141,9 +141,9 @@ df_facebook_total = spark.sql(f"""
                                     ErneuerbareEnergien,
                                     DisponibleErzeugung,
                                     IntelligenteStromnetze,
-                                    EnBWAlsArbeitgeberIn,
+                                    AAlsArbeitgeberIn,
                                     NachhaltigkeitCSRESG,
-                                    MarkeEnBW
+                                    MarkeA
                                 FROM datif_pz_uk_{env}.03_transformed.facebook_organic_total
                                 """)
 
@@ -155,8 +155,8 @@ from pyspark.sql.functions import expr, array, when, col, concat_ws, trim, regex
 columns_to_check = [
     "Strategie2030", "FinanzierungEnergiewende", "EMobilitaet", 
     "VernetzeEnergiewelt", "TransformationGasnetzeWasserstoff", "ErneuerbareEnergien", 
-    "DisponibleErzeugung", "IntelligenteStromnetze", "EnBWAlsArbeitgeberIn", 
-    "NachhaltigkeitCSRESG", "MarkeEnBW"
+    "DisponibleErzeugung", "IntelligenteStromnetze", "AAlsArbeitgeberIn", 
+    "NachhaltigkeitCSRESG", "MarkeA"
 ]
 
 # Create a new column 'Themen' with the column names where the value is >= 0.8
@@ -213,9 +213,9 @@ df_instagram_total = spark.sql(f"""
                                     -- IF(ErneuerbareEnergien > {strategic_areas_threshold}, TRUE, FALSE) AS ErneuerbareEnergien,
                                     -- IF(DisponibleErzeugung > {strategic_areas_threshold}, TRUE, FALSE) AS DisponibleErzeugung,
                                     -- IF(IntelligenteStromnetze > {strategic_areas_threshold}, TRUE, FALSE) AS IntelligenteStromnetze,
-                                    -- IF(EnBWAlsArbeitgeberIn > {strategic_areas_threshold}, TRUE, FALSE) AS EnBWAlsArbeitgeberIn,
+                                    -- IF(AAlsArbeitgeberIn > {strategic_areas_threshold}, TRUE, FALSE) AS AAlsArbeitgeberIn,
                                     -- IF(NachhaltigkeitCSRESG > {strategic_areas_threshold}, TRUE, FALSE) AS NachhaltigkeitCSRESG,
-                                    -- IF(MarkeEnBW > {strategic_areas_threshold}, TRUE, FALSE) AS MarkeEnBW
+                                    -- IF(MarkeA > {strategic_areas_threshold}, TRUE, FALSE) AS MarkeA
                                     Strategie2030,
                                     FinanzierungEnergiewende,
                                     EMobilitaet,
@@ -224,9 +224,9 @@ df_instagram_total = spark.sql(f"""
                                     ErneuerbareEnergien,
                                     DisponibleErzeugung,
                                     IntelligenteStromnetze,
-                                    EnBWAlsArbeitgeberIn,
+                                    AAlsArbeitgeberIn,
                                     NachhaltigkeitCSRESG,
-                                    MarkeEnBW
+                                    MarkeA
                                 FROM datif_pz_uk_{env}.03_transformed.instagram_organic_total
                                 """)                
 
@@ -238,8 +238,8 @@ df_instagram_total = spark.sql(f"""
 columns_to_check = [
     "Strategie2030", "FinanzierungEnergiewende", "EMobilitaet", 
     "VernetzeEnergiewelt", "TransformationGasnetzeWasserstoff", "ErneuerbareEnergien", 
-    "DisponibleErzeugung", "IntelligenteStromnetze", "EnBWAlsArbeitgeberIn", 
-    "NachhaltigkeitCSRESG", "MarkeEnBW"
+    "DisponibleErzeugung", "IntelligenteStromnetze", "AAlsArbeitgeberIn", 
+    "NachhaltigkeitCSRESG", "MarkeA"
 ]
 
 # Create a new column 'Themen' with the column names where the value is >= 0.8
@@ -330,9 +330,9 @@ df_x_total = spark.sql(f"""
                                 -- IF(ErneuerbareEnergien > {strategic_areas_threshold}, TRUE, FALSE) AS ErneuerbareEnergien,
                                 -- IF(DisponibleErzeugung > {strategic_areas_threshold}, TRUE, FALSE) AS DisponibleErzeugung,
                                 -- IF(IntelligenteStromnetze > {strategic_areas_threshold}, TRUE, FALSE) AS IntelligenteStromnetze,
-                                -- IF(EnBWAlsArbeitgeberIn > {strategic_areas_threshold}, TRUE, FALSE) AS EnBWAlsArbeitgeberIn,
+                                -- IF(AAlsArbeitgeberIn > {strategic_areas_threshold}, TRUE, FALSE) AS AAlsArbeitgeberIn,
                                 -- IF(NachhaltigkeitCSRESG > {strategic_areas_threshold}, TRUE, FALSE) AS NachhaltigkeitCSRESG,
-                                -- IF(MarkeEnBW > {strategic_areas_threshold}, TRUE, FALSE) AS MarkeEnBW
+                                -- IF(MarkeA > {strategic_areas_threshold}, TRUE, FALSE) AS MarkeA
                                 Strategie2030,
                                 FinanzierungEnergiewende,
                                 EMobilitaet,
@@ -341,9 +341,9 @@ df_x_total = spark.sql(f"""
                                 ErneuerbareEnergien,
                                 DisponibleErzeugung,
                                 IntelligenteStromnetze,
-                                EnBWAlsArbeitgeberIn,
+                                AAlsArbeitgeberIn,
                                 NachhaltigkeitCSRESG,
-                                MarkeEnBW
+                                MarkeA
                             FROM datif_pz_uk_{env}.03_transformed.x_organic_total
                             """)                      
 
@@ -353,8 +353,8 @@ df_x_total = spark.sql(f"""
 columns_to_check = [
     "Strategie2030", "FinanzierungEnergiewende", "EMobilitaet", 
     "VernetzeEnergiewelt", "TransformationGasnetzeWasserstoff", "ErneuerbareEnergien", 
-    "DisponibleErzeugung", "IntelligenteStromnetze", "EnBWAlsArbeitgeberIn", 
-    "NachhaltigkeitCSRESG", "MarkeEnBW"
+    "DisponibleErzeugung", "IntelligenteStromnetze", "AAlsArbeitgeberIn", 
+    "NachhaltigkeitCSRESG", "MarkeA"
 ]
 
 # Create a new column 'Themen' with the column names where the value is >= 0.8
@@ -412,9 +412,9 @@ fn_overwrite_table(df_source=df_x_total, target_schema_name=pz_target_schema_nam
 #                                     -- IF(ErneuerbareEnergien > {strategic_areas_threshold}, TRUE, FALSE) AS ErneuerbareEnergien,
 #                                     -- IF(DisponibleErzeugung > {strategic_areas_threshold}, TRUE, FALSE) AS DisponibleErzeugung,
 #                                     -- IF(IntelligenteStromnetze > {strategic_areas_threshold}, TRUE, FALSE) AS IntelligenteStromnetze,
-#                                     -- IF(EnBWAlsArbeitgeberIn > {strategic_areas_threshold}, TRUE, FALSE) AS EnBWAlsArbeitgeberIn,
+#                                     -- IF(AAlsArbeitgeberIn > {strategic_areas_threshold}, TRUE, FALSE) AS AAlsArbeitgeberIn,
 #                                     -- IF(NachhaltigkeitCSRESG > {strategic_areas_threshold}, TRUE, FALSE) AS NachhaltigkeitCSRESG,
-#                                     -- IF(MarkeEnBW > {strategic_areas_threshold}, TRUE, FALSE) AS MarkeEnBW
+#                                     -- IF(MarkeA > {strategic_areas_threshold}, TRUE, FALSE) AS MarkeA
 #                                     Strategie2030,
 #                                     FinanzierungEnergiewende,
 #                                     EMobilitaet,
@@ -424,9 +424,9 @@ fn_overwrite_table(df_source=df_x_total, target_schema_name=pz_target_schema_nam
 #                                     ErneuerbareEnergien,
 #                                     DisponibleErzeugung,
 #                                     IntelligenteStromnetze,
-#                                     EnBWAlsArbeitgeberIn,
+#                                     AAlsArbeitgeberIn,
 #                                     NachhaltigkeitCSRESG,
-#                                     MarkeEnBW
+#                                     MarkeA
 #                                 FROM 03_transformed.linkedin_organic_total
 #                                 """)                                
 
@@ -436,8 +436,8 @@ fn_overwrite_table(df_source=df_x_total, target_schema_name=pz_target_schema_nam
 # columns_to_check = [
 #     "Strategie2030", "FinanzierungEnergiewende", "EMobilitaet", "Performancekultur", 
 #     "VernetzeEnergiewelt", "TransformationGasnetzeWasserstoff", "ErneuerbareEnergien", 
-#     "DisponibleErzeugung", "IntelligenteStromnetze", "EnBWAlsArbeitgeberIn", 
-#     "NachhaltigkeitCSRESG", "MarkeEnBW"
+#     "DisponibleErzeugung", "IntelligenteStromnetze", "AAlsArbeitgeberIn", 
+#     "NachhaltigkeitCSRESG", "MarkeA"
 # ]
 
 # # Create a new column 'Themen' with the column names where the value is >= 0.8
@@ -501,9 +501,9 @@ fn_overwrite_table(df_source=df_x_total, target_schema_name=pz_target_schema_nam
 #                                     -- IF(ErneuerbareEnergien > {strategic_areas_threshold}, TRUE, FALSE) AS ErneuerbareEnergien,
 #                                     -- IF(DisponibleErzeugung > {strategic_areas_threshold}, TRUE, FALSE) AS DisponibleErzeugung,
 #                                     -- IF(IntelligenteStromnetze > {strategic_areas_threshold}, TRUE, FALSE) AS IntelligenteStromnetze,
-#                                     -- IF(EnBWAlsArbeitgeberIn > {strategic_areas_threshold}, TRUE, FALSE) AS EnBWAlsArbeitgeberIn,
+#                                     -- IF(AAlsArbeitgeberIn > {strategic_areas_threshold}, TRUE, FALSE) AS AAlsArbeitgeberIn,
 #                                     -- IF(NachhaltigkeitCSRESG > {strategic_areas_threshold}, TRUE, FALSE) AS NachhaltigkeitCSRESG,
-#                                     -- IF(MarkeEnBW > {strategic_areas_threshold}, TRUE, FALSE) AS MarkeEnBW
+#                                     -- IF(MarkeA > {strategic_areas_threshold}, TRUE, FALSE) AS MarkeA
 #                                     Strategie2030,
 #                                     FinanzierungEnergiewende,
 #                                     EMobilitaet,
@@ -513,9 +513,9 @@ fn_overwrite_table(df_source=df_x_total, target_schema_name=pz_target_schema_nam
 #                                     ErneuerbareEnergien,
 #                                     DisponibleErzeugung,
 #                                     IntelligenteStromnetze,
-#                                     EnBWAlsArbeitgeberIn,
+#                                     AAlsArbeitgeberIn,
 #                                     NachhaltigkeitCSRESG,
-#                                     MarkeEnBW
+#                                     MarkeA
 #                                 FROM 03_transformed.linkedin_organic_video_total
 #                                 """)
                              
@@ -526,8 +526,8 @@ fn_overwrite_table(df_source=df_x_total, target_schema_name=pz_target_schema_nam
 # columns_to_check = [
 #     "Strategie2030", "FinanzierungEnergiewende", "EMobilitaet", "Performancekultur", 
 #     "VernetzeEnergiewelt", "TransformationGasnetzeWasserstoff", "ErneuerbareEnergien", 
-#     "DisponibleErzeugung", "IntelligenteStromnetze", "EnBWAlsArbeitgeberIn", 
-#     "NachhaltigkeitCSRESG", "MarkeEnBW"
+#     "DisponibleErzeugung", "IntelligenteStromnetze", "AAlsArbeitgeberIn", 
+#     "NachhaltigkeitCSRESG", "MarkeA"
 # ]
 
 # # Create a new column 'Themen' with the column names where the value is >= 0.8
@@ -582,9 +582,9 @@ df_linkedin_total = spark.sql(f"""
                             ErneuerbareEnergien,
                             DisponibleErzeugung,
                             IntelligenteStromnetze,
-                            EnBWAlsArbeitgeberIn,
+                            AAlsArbeitgeberIn,
                             NachhaltigkeitCSRESG,
-                            MarkeEnBW
+                            MarkeA
                         FROM datif_pz_uk_{env}.03_transformed.linkedin_organic_total
                               """)
 
@@ -594,8 +594,8 @@ df_linkedin_total = spark.sql(f"""
 columns_to_check = [
     "Strategie2030", "FinanzierungEnergiewende", "EMobilitaet", 
     "VernetzeEnergiewelt", "TransformationGasnetzeWasserstoff", "ErneuerbareEnergien", 
-    "DisponibleErzeugung", "IntelligenteStromnetze", "EnBWAlsArbeitgeberIn", 
-    "NachhaltigkeitCSRESG", "MarkeEnBW"
+    "DisponibleErzeugung", "IntelligenteStromnetze", "AAlsArbeitgeberIn", 
+    "NachhaltigkeitCSRESG", "MarkeA"
 ]
 
 # Create a new column 'Themen' with the column names where the value is >= 0.8
@@ -666,9 +666,9 @@ df_youtube_total = spark.sql(f"""
                                  ErneuerbareEnergien,
                                  DisponibleErzeugung,
                                  IntelligenteStromnetze,
-                                 EnBWAlsArbeitgeberIn,
+                                 AAlsArbeitgeberIn,
                                  NachhaltigkeitCSRESG,
-                                 MarkeEnBW,
+                                 MarkeA,
                                  Owner
                                 FROM datif_pz_uk_{env}.03_transformed.youtube_organic_post_total
                                 """)
@@ -681,8 +681,8 @@ from pyspark.sql.functions import expr, array, when, col, concat_ws, trim, regex
 columns_to_check = [
     "Strategie2030", "FinanzierungEnergiewende", "EMobilitaet", 
     "VernetzeEnergiewelt", "TransformationGasnetzeWasserstoff", "ErneuerbareEnergien", 
-    "DisponibleErzeugung", "IntelligenteStromnetze", "EnBWAlsArbeitgeberIn", 
-    "NachhaltigkeitCSRESG", "MarkeEnBW"
+    "DisponibleErzeugung", "IntelligenteStromnetze", "AAlsArbeitgeberIn", 
+    "NachhaltigkeitCSRESG", "MarkeA"
 ]
 
 # Create a new column 'Themen' with the column names where the value is >= 0.8

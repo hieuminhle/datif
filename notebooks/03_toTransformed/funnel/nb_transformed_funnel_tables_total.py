@@ -31,18 +31,18 @@
 # MAGIC
 # MAGIC ---
 # MAGIC - Versionen (aktuelle immer oben):
-# MAGIC - 27.05.2025 Justin Stange-Heiduk: Youtube Themenbereiche hinzugefügt, Performancekultur entfernt
-# MAGIC - 13.05.2025 Justin Stange-Heiduk: Verbesserte Konsolidierte LinkedIn-Daten aus Posts & Videos
-# MAGIC - 07.05.2025 Justin Stange-Heiduk: Instagram API Änderung Impression -> Views
-# MAGIC - 23.04.2025 Philipp Sandhaas: Konsolidierte LinkedIn-Daten aus Posts & Videos
-# MAGIC - 28.02.2025 Sebastian Fastert: Schema Updates YouTube
-# MAGIC - 13.02.2025 Svenja Schuder: Schema Updates
-# MAGIC - 06.02.2025 Svenja Schuder: Unity Catalog als Variable hinzugefügt
-# MAGIC - 06.12.2024 Svenja Schuder: C-Level-Tagging hinzugefügt
-# MAGIC - 03.12.2024 Svenja Schuder: Schemabereinigungen
-# MAGIC - 29.11.2024 Svenja Schuder: Refactoring
-# MAGIC - 13.11.2024 Sebastian Fastert: Logik Strategische Themen hinzugefügt
-# MAGIC - 03.11.2024 Svenja Schuder: Init
+# MAGIC - 27.05.2025 Max Mustermann: Youtube Themenbereiche hinzugefügt, Performancekultur entfernt
+# MAGIC - 13.05.2025 Max Mustermann: Verbesserte Konsolidierte LinkedIn-Daten aus Posts & Videos
+# MAGIC - 07.05.2025 Max Mustermann: Instagram API Änderung Impression -> Views
+# MAGIC - 23.04.2025 Max Mustermann: Konsolidierte LinkedIn-Daten aus Posts & Videos
+# MAGIC - 28.02.2025 Max Mustermann: Schema Updates YouTube
+# MAGIC - 13.02.2025 Max Mustermann: Schema Updates
+# MAGIC - 06.02.2025 Max Mustermann: Unity Catalog als Variable hinzugefügt
+# MAGIC - 06.12.2024 Max Mustermann: C-Level-Tagging hinzugefügt
+# MAGIC - 03.12.2024 Max Mustermann: Schemabereinigungen
+# MAGIC - 29.11.2024 Max Mustermann: Refactoring
+# MAGIC - 13.11.2024 Max Mustermann: Logik Strategische Themen hinzugefügt
+# MAGIC - 03.11.2024 Max Mustermann: Init
 # MAGIC
 
 # COMMAND ----------
@@ -276,7 +276,7 @@ df_cleaned = df_cleaned.withColumn("CreatedDate", regexp_replace('CreatedDate', 
     F.when(F.col("CreatedDate").rlike("[A-Za-z]{3} [0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2} \\+[0-9]{4} [0-9]{4}$"), to_timestamp("CreatedDate", "MMM dd HH:mm:ss Z yyyy"))
     .when(F.col("CreatedDate").rlike("^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}Z$"), to_timestamp("CreatedDate", "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")))\
 .withColumn("CreatedDate", date_format(F.col("CreatedDate"), "yyyy-MM-dd").cast("date"))\
-.withColumn("PostURL", concat(lit("https://x.com/EnBW/status/"), df_cleaned.PostID))
+.withColumn("PostURL", concat(lit("https://x.com/A/status/"), df_cleaned.PostID))
 
 df_cleaned = df_cleaned.withColumn("CLevelErwaehnungen", c_level_udf(df_cleaned.PostMessage))
 

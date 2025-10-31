@@ -19,7 +19,7 @@
 # MAGIC
 # MAGIC ---
 # MAGIC * Versionen (aktuelle immer oben):     
-# MAGIC - 08.10.2024 Svenja Schuder: init
+# MAGIC - 08.10.2024 Max Mustermann: init
 
 # COMMAND ----------
 

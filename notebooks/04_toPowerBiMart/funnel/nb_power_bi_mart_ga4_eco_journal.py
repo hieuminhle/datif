@@ -23,11 +23,11 @@
 # MAGIC ---
 # MAGIC * Versionen (aktuelle immer oben):
 # MAGIC   - 04.09.2025 Minh Hieu Le: Löschen von Codezellen, die einzelnen Tabellen schreiben
-# MAGIC   - 16.07.2025 Justin Stange-Heiduk: Add datif_pz_uk_{env}.
-# MAGIC   - 25.06.2025 Justin Stange-Heiduk: Add EcoJournal Daily consolidate
-# MAGIC   - 03.06.2025 Justin Stange-Heiduk: Add Strategische Themen
-# MAGIC   - 29.04.2025 Justin Stange-Heiduk: Add Abstract
-# MAGIC   - 21.02.2025 Svenja Schuder: Init
+# MAGIC   - 16.07.2025 Max Mustermann: Add datif_pz_uk_{env}.
+# MAGIC   - 25.06.2025 Max Mustermann: Add EcoJournal Daily consolidate
+# MAGIC   - 03.06.2025 Max Mustermann: Add Strategische Themen
+# MAGIC   - 29.04.2025 Max Mustermann: Add Abstract
+# MAGIC   - 21.02.2025 Max Mustermann: Init
 
 # COMMAND ----------
 

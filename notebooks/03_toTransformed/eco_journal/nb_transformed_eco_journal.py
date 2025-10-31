@@ -117,7 +117,7 @@ SELECT
     -- URL-Komponenten
     FIRST(ga4_sessions.Page_path__query_string___GA4__Google_Analytics, TRUE) as Page_path_query_string,
     FIRST(ga4_sessions.Page_path__query_string_and_screen_class___GA4__Google_Analytics, TRUE) as Page_path_query_string_and_screen_class,
-    FIRST(CONCAT('https://www.enbw.com',ga4_sessions.Page_path___GA4__Google_Analytics), TRUE) as Full_page_URL,
+    FIRST(CONCAT('https://www.A.com',ga4_sessions.Page_path___GA4__Google_Analytics), TRUE) as Full_page_URL,
 
     -- Summierte Metriken
     SUM(CAST(ga4_sessions.Engaged_sessions___GA4__Google_Analytics AS INTEGER)) as Engaged_sessions,

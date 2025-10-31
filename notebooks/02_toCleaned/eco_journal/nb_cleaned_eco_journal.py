@@ -18,9 +18,9 @@
 # MAGIC
 # MAGIC ---
 # MAGIC * Versionen (aktuelle immer oben):
-# MAGIC - 03.06.2025 Justin Stange-Heiduk: Add Eco*Journal Strategische Themen
-# MAGIC - 24.04.2025 Justin Stange-Heiduk: Add Eco*Journal Abstract
-# MAGIC - 12.03.2025 Svenja Schuder: Init
+# MAGIC - 03.06.2025 Max Mustermann: Add Eco*Journal Strategische Themen
+# MAGIC - 24.04.2025 Max Mustermann: Add Eco*Journal Abstract
+# MAGIC - 12.03.2025 Max Mustermann: Init
 
 # COMMAND ----------
 
@@ -209,7 +209,7 @@ def generate_prompt_messages(s: str) -> List[Dict]:
                 Du bist ein professioneller PR-Redakteur mit Erfahrung in Unternehmenskommunikation, insbesondere im Energiesektor.
                 Schreibe einen Abstract des folgenden Artikels. Der Abstract soll maximal 1.000 Zeichen lang sein.
                 Ziel ist es, die zentralen Aussagen, Projekte, Ziele und Innovationsaspekte aus PR-Sicht kompakt und verständlich zusammenzufassen.
-                Achte darauf, relevante Zahlen, Zeitangaben (z. B. bis 2025), Projektbeteiligungen und Alleinstellungsmerkmale der EnBW hervorzuheben.
+                Achte darauf, relevante Zahlen, Zeitangaben (z. B. bis 2025), Projektbeteiligungen und Alleinstellungsmerkmale der A hervorzuheben.
                 Der Stil soll professionell, sachlich und dennoch leicht verständlich sein – wie für eine Pressemitteilung oder einen Medienüberblick.
                 Gib nur den Abstract als Ergebnis zurück. Keine Einleitung, keine Metakommentare.
             

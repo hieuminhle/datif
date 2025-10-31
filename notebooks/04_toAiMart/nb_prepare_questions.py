@@ -42,9 +42,9 @@ strategic_tags = [
     "ErneuerbareEnergien",
     "DisponibleErzeugung",
     "IntelligenteStromnetze",
-    "EnBWAlsArbeitgeberIn",
+    "AAlsArbeitgeberIn",
     "NachhaltigkeitCSRESG",
-    "MarkeEnBW",
+    "MarkeA",
 ]
 
 questions = [

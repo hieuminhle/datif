@@ -35,16 +35,16 @@
 # MAGIC - 16.10.2025 Minh Hieu Le: Korrektur der Formel von Engagement und WeightedEngagement für YouTube (TotalViews statt daily Views im Nenner)
 # MAGIC - 10.10.2025 Minh Hieu Le: Anpassen, sodass bei LinkedIn die Zahlenspalten von numerischen Datentypen sind
 # MAGIC - 07.10.2025 Minh Hieu Le: Anpassen, sodass bei YouTube bei Divisionen keine Null im Nenner ist
-# MAGIC - 16.07.2025 Justin Stange-Heiduk: Add datif_pz_uk_{env}.
-# MAGIC - 25.06.2025 JUstin Stange-Heiduk: Youtube Owner Spalte hinzugefügt
-# MAGIC - 11.06.2025 Justin Stange-Heiduk: Add EngagementRating und WeightedEngagamenet to not Meta Channel
-# MAGIC - 13.05.2025 Justin Stange-Heiduk: Verbesserte Konsolidierte LinkedIn-Daten aus Posts & Videos
-# MAGIC - 07.05.2025 Justin Stange-Heiduk: Instagram API Änderung Impression -> Views
+# MAGIC - 16.07.2025 Max Mustermann: Add datif_pz_uk_{env}.
+# MAGIC - 25.06.2025 Max Mustermann: Youtube Owner Spalte hinzugefügt
+# MAGIC - 11.06.2025 Max Mustermann: Add EngagementRating und WeightedEngagamenet to not Meta Channel
+# MAGIC - 13.05.2025 Max Mustermann: Verbesserte Konsolidierte LinkedIn-Daten aus Posts & Videos
+# MAGIC - 07.05.2025 Max Mustermann: Instagram API Änderung Impression -> Views
 # MAGIC - 06.05.2025 Minh Hieu Le: VideoURL hinzugefügt
-# MAGIC - 23.04.2025 Philipp Sandhaas: konsolidierte LinkedIn-View
-# MAGIC - 13.02.2025 Svenja Schuder: Schema Updates
-# MAGIC - 06.02.2025 Svenja Schuder: Unity Catalog als Variable hinzugefügt
-# MAGIC - 03.12.2024 Svenja Schuder: Schemabereinigungen
+# MAGIC - 23.04.2025 Max Mustermann: konsolidierte LinkedIn-View
+# MAGIC - 13.02.2025 Max Mustermann: Schema Updates
+# MAGIC - 06.02.2025 Max Mustermann: Unity Catalog als Variable hinzugefügt
+# MAGIC - 03.12.2024 Max Mustermann: Schemabereinigungen
 
 # COMMAND ----------
 
@@ -214,7 +214,7 @@ spark.sql(f"""
         xt.CreatedDate AS CreatedDate,
         x.In_Reply_To_Status_ID__X_Organic AS InReplyToStatusID,
         x.Post_Text__X_Organic AS PostMessage,
-        CONCAT('https://x.com/EnBW/status/', x.Post_ID__X_Organic) AS PostURL,
+        CONCAT('https://x.com/A/status/', x.Post_ID__X_Organic) AS PostURL,
         x.Post_Media_Type__X_Organic AS PostType,
         COALESCE(CAST(x.Impressions__X_Organic AS INTEGER), 0) AS Impressions,
         COALESCE(CAST(x.Likes__X_Organic AS INTEGER), 0) AS Likes,

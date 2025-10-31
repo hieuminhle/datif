@@ -17,10 +17,10 @@
 # MAGIC ---
 # MAGIC Versionen (aktuelle immer oben):
 # MAGIC - 16.10.2025 Minh Hieu Le: Anpassen, sodass TotalAverageViewDuration nie durch 0 geteilt wird
-# MAGIC - 25.06.2025 JUstin Stange-Heiduk: Youtube Owner Spalte hinzugefügt
-# MAGIC - 27.05.2025 Justin Stange-Heiduk: Youtube Themenbereiche hinzugefügt
+# MAGIC - 25.06.2025 Max Mustermann: Youtube Owner Spalte hinzugefügt
+# MAGIC - 27.05.2025 Max Mustermann: Youtube Themenbereiche hinzugefügt
 # MAGIC - 06.05.2025 Minh Hieu Le: VideoURL hinzugefügt
-# MAGIC - 28.03.2025 Sebastian Fastert: Init
+# MAGIC - 28.03.2025 Max Mustermann: Init
 # MAGIC
 
 # COMMAND ----------

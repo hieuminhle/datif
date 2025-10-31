@@ -37,7 +37,7 @@ client.create_endpoint(
                 "openai_config": {
                     "openai_api_type": "azure",
                     "openai_api_key": "{{secrets/keyVault/azure-openai-api-key}}",
-                    "openai_api_base": "https://api.competence-cente-cc-genai-prod.enbw-az.cloud/",
+                    "openai_api_base": "https://api.competence-cente-cc-genai-prod.A-az.cloud/",
                     "openai_deployment_name": "text-embedding-ada-002",
                     "openai_api_version": "2024-06-01"
                 },
@@ -62,7 +62,7 @@ client.create_endpoint(
                 "openai_config": {
                     "openai_api_type": "azure",
                     "openai_api_key": "{{secrets/keyVault/azure-openai-api-key}}",
-                    "openai_api_base": "https://api.competence-cente-cc-genai-prod.enbw-az.cloud/",
+                    "openai_api_base": "https://api.competence-cente-cc-genai-prod.A-az.cloud/",
                     "openai_deployment_name": "gpt-4o",
                     "openai_api_version": "2024-06-01"
                 },

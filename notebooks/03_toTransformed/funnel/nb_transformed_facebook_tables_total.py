@@ -15,7 +15,7 @@
 # MAGIC
 # MAGIC ---
 # MAGIC Versionen (aktuelle immer oben):
-# MAGIC - 28.03.2025 Sebastian Fastert: Init
+# MAGIC - 28.03.2025 Max Mustermann: Init
 # MAGIC
 
 # COMMAND ----------

@@ -23,12 +23,12 @@
 # MAGIC
 # MAGIC ---
 # MAGIC * Versionen (aktuelle immer oben):
-# MAGIC - 21.10.2025 Justin Stange-Heiduk: Add Daily & ID agg
+# MAGIC - 21.10.2025 Max Mustermann: Add Daily & ID agg
 # MAGIC - 15.10.2025 Minh Hieu Le: Correct the formula for calculating engagement for Instagram Posts
 # MAGIC - 09.10.2025 Minh Hieu Le: Correct the formula for calculating engagement for Facebook
 # MAGIC - 07.10.2025 Minh Hieu Le: Display columns which are used for calculating engagement
-# MAGIC - 11.06.2025 Justin Stange-Heiduk: Add EngagementRating und WeightedEngagamenet to not Meta Channel
-# MAGIC - 10.06.2025 Justin Stange-Heiduk: Init
+# MAGIC - 11.06.2025 Max Mustermann: Add EngagementRating und WeightedEngagamenet to not Meta Channel
+# MAGIC - 10.06.2025 Max Mustermann: Init
 # MAGIC
 
 # COMMAND ----------

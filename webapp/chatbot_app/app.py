@@ -99,9 +99,9 @@ def get_actions_strategische_themen():
         cl.Action(name="strategisches_thema_selection_button", label="Erneuerbare Energien", value=f"{id}StrategicErneuerbareEnergien"),
         cl.Action(name="strategisches_thema_selection_button", label="Disponible Erzeugung", value=f"{id}StrategicDisponibleErzeugung"),
         cl.Action(name="strategisches_thema_selection_button", label="Intelligente Stromnetze", value=f"{id}StrategicIntelligenteStromnetze"),
-        cl.Action(name="strategisches_thema_selection_button", label="EnBW als ArbeitgeberIn", value=f"{id}StrategicEnBWAlsArbeitgeberIn"),
+        cl.Action(name="strategisches_thema_selection_button", label="A als ArbeitgeberIn", value=f"{id}StrategicAAlsArbeitgeberIn"),
         cl.Action(name="strategisches_thema_selection_button", label="Nachhaltigkeit/CSR/ESG", value=f"{id}StrategicNachhaltigkeitCSRESG"),
-        cl.Action(name="strategisches_thema_selection_button", label="Marke EnBW", value=f"{id}StrategicMarkeEnBW"),
+        cl.Action(name="strategisches_thema_selection_button", label="Marke A", value=f"{id}StrategicMarkeA"),
     ]
 
 

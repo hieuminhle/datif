@@ -21,8 +21,8 @@
 # MAGIC   
 # MAGIC ---
 # MAGIC * Versionen (aktuelle immer oben):
-# MAGIC - 15.11.2024 Svenja Schuder: code refactoring
-# MAGIC - 26.09.2024 Svenja Schuder: Init
+# MAGIC - 15.11.2024 Max Mustermann: code refactoring
+# MAGIC - 26.09.2024 Max Mustermann: Init
 
 # COMMAND ----------
 

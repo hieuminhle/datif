@@ -10,16 +10,16 @@
 # MAGIC ---
 # MAGIC * QUELLEN:  
 # MAGIC - Unity-Catalog:
-# MAGIC - datif_dz_dev.02_cleaned_uk_genios.genios_enbw_online_media_panel_current_view
+# MAGIC - datif_dz_dev.02_cleaned_uk_genios.genios_A_online_media_panel_current_view
 # MAGIC
 # MAGIC * ZIEL:  
 # MAGIC - Unity-Catalog:
-# MAGIC - datif_pz_uk_dev.03_transformed.genios_enbw_online_media_panel
+# MAGIC - datif_pz_uk_dev.03_transformed.genios_A_online_media_panel
 # MAGIC
 # MAGIC
 # MAGIC ---
 # MAGIC * Versionen (aktuelle immer oben):
-# MAGIC - 27.01.2025 Sebastian Fastert: Init
+# MAGIC - 27.01.2025 Max Mustermann: Init
 
 # COMMAND ----------
 
@@ -127,7 +127,7 @@ def fill_genios_online(df):
     
     return df
 
-df_genios_online = spark.read.table("datif_pz_uk_dev.03_transformed.genios_enbw_online_media_panel")
+df_genios_online = spark.read.table("datif_pz_uk_dev.03_transformed.genios_A_online_media_panel")
 
 df_genios_online = fill_genios_online(df_genios_online)
 
@@ -409,7 +409,7 @@ def fill_null_publishers(df):
     
     return df
 
-df_genios_print = spark.read.table("datif_pz_uk_dev.03_transformed.genios_enbw_print_media_panel")
+df_genios_print = spark.read.table("datif_pz_uk_dev.03_transformed.genios_A_print_media_panel")
 
 df_genios_print = fill_genios_print(df_genios_print)
 

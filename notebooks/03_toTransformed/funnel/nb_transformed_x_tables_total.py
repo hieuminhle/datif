@@ -18,7 +18,7 @@
 # MAGIC ---
 # MAGIC Versionen (aktuelle immer oben):
 # MAGIC - 16.10.2025 Minh Hieu Le: Hinzufügen von Engagement und WeightedEngagement
-# MAGIC - 28.03.2025 Sebastian Fastert: Init
+# MAGIC - 28.03.2025 Max Mustermann: Init
 # MAGIC
 
 # COMMAND ----------
@@ -104,7 +104,7 @@ df_cleaned = df_cleaned.withColumn("CreatedDate", regexp_replace('CreatedDate', 
     F.when(F.col("CreatedDate").rlike("[A-Za-z]{3} [0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2} \\+[0-9]{4} [0-9]{4}$"), to_timestamp("CreatedDate", "MMM dd HH:mm:ss Z yyyy"))
     .when(F.col("CreatedDate").rlike("^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}Z$"), to_timestamp("CreatedDate", "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")))\
 .withColumn("CreatedDate", date_format(F.col("CreatedDate"), "yyyy-MM-dd").cast("date"))\
-.withColumn("PostURL", concat(lit("https://x.com/EnBW/status/"), df_cleaned.PostID))
+.withColumn("PostURL", concat(lit("https://x.com/A/status/"), df_cleaned.PostID))
 
 df_cleaned = df_cleaned.withColumn("CLevelErwaehnungen", c_level_udf(df_cleaned.PostMessage))
 

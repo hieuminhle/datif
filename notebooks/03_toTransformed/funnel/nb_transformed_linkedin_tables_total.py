@@ -20,9 +20,9 @@
 # MAGIC ---
 # MAGIC ### Versionen (aktuelle immer oben)
 # MAGIC - 07.10.2025 Minh Hieu Le: Sicherstellen, keine negativen Zahlen vorkommen
-# MAGIC - 13.05.2025 Justin Stange-Heiduk: Verbesserte Konsolidierte LinkedIn-Daten aus Posts & Videos
-# MAGIC - 22.04.2025 Philipp Sandhaas: Init (Clone von [`nb_transformed_funnel_tables_total`](https://adb-3097416414063338.18.azuredatabricks.net/editor/notebooks/2562528655705054?o=3097416414063338#command/2562528655705187))
-# MAGIC - 28.03.2025 Sebastian Fastert: Init
+# MAGIC - 13.05.2025 Max Mustermann: Verbesserte Konsolidierte LinkedIn-Daten aus Posts & Videos
+# MAGIC - 22.04.2025 Max Mustermann: Init (Clone von [`nb_transformed_funnel_tables_total`](https://adb-3097416414063338.18.azuredatabricks.net/editor/notebooks/2562528655705054?o=3097416414063338#command/2562528655705187))
+# MAGIC - 28.03.2025 Max Mustermann: Init
 
 # COMMAND ----------
 

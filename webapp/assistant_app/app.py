@@ -38,7 +38,7 @@ def get_data_layer():
     return CustomDataLayer()
 
 #UI Konfiguration
-config.ui.name = "EnBW WattsUp Chatbot"
+config.ui.name = "A WattsUp Chatbot"
 config.ui.logo = {
     "light": "/logo_light.svg",
     "dark": "/logo_dark.svg"
@@ -231,7 +231,7 @@ async def start_chat():
     cl.user_session.set("thread_id", thread.id)
 
     await cl.Message(
-        content="👋 Willkommen beim EnBW WattsUp Chatbot!",
+        content="👋 Willkommen beim A WattsUp Chatbot!",
         actions=[
             cl.Action(
                 name ="open_powerbi",

@@ -1,4 +1,4 @@
-# 💬 Willkommen beim EnBW KI-Chatbot
+# 💬 Willkommen beim A KI-Chatbot
 
 Dieser Chatbot wurde speziell zur Analyse und Exploration von **Kommunikationsdaten** entwickelt. Er hilft dir, Inhalte, Trends, KPIs und thematische Zuordnungen effizient zu untersuchen – ganz ohne Programmierkenntnisse.
 
@@ -10,14 +10,14 @@ Der Chatbot greift auf **zwei täglich aktualisierte CSV-Dateien** zu:
 
 ### 1. **Social-Media-Daten**
 
-* Enthält Beiträge von Facebook, Instagram, LinkedIn, X (ehem. Twitter) und YouTube.
-* Enthaltene Kennzahlen: Impressions und EngagementRateInPercent.
-* Thematische Einordnung über die Felder `StrategischesThema` und `Themenbereich`.
+- Enthält Beiträge von Facebook, Instagram, LinkedIn, X (ehem. Twitter) und YouTube.
+- Enthaltene Kennzahlen: Impressions und EngagementRateInPercent.
+- Thematische Einordnung über die Felder `StrategischesThema` und `Themenbereich`.
 
 ### 2. **Eco-Journal-Daten**
 
-* Enthält Nutzungsdaten von redaktionellen Artikeln der Eco-Journal-Plattform.
-* Beinhaltet Kennzahlen wie durchschnittliche Sitzungsdauer, aktive Nutzer, Seitenaufrufe und thematische Einordnungen.
+- Enthält Nutzungsdaten von redaktionellen Artikeln der Eco-Journal-Plattform.
+- Beinhaltet Kennzahlen wie durchschnittliche Sitzungsdauer, aktive Nutzer, Seitenaufrufe und thematische Einordnungen.
 
 ---
 
@@ -43,17 +43,17 @@ Der Chatbot nutzt zwei spezialisierte Analysewerkzeuge:
 
 Ideal für:
 
-* Kennzahlen, Rankings und Zeitreihen
-* Beispiel:
-  *„Welche Plattform hatte im Mai die höchste durchschnittliche EngagementRate?“*
+- Kennzahlen, Rankings und Zeitreihen
+- Beispiel:
+  _„Welche Plattform hatte im Mai die höchste durchschnittliche EngagementRate?“_
 
 ### 2. **Semantic Search (🔍)**
 
 Ideal für:
 
-* Inhaltliche Fragen und Themenexploration
-* Beispiel:
-  *„Gab es Posts über Wärmepumpen oder Photovoltaik?“*
+- Inhaltliche Fragen und Themenexploration
+- Beispiel:
+  _„Gab es Posts über Wärmepumpen oder Photovoltaik?“_
 
 ---
 
@@ -61,11 +61,11 @@ Ideal für:
 
 Hier sind einige nützliche Prompts zum Start:
 
-* **„Zeige mir die Top 5 Posts nach EngagementRate im letzten Monat.“**
-* **„Welche strategischen Themen wurden im Februar häufig kommuniziert?“**
-* **„Gab es LinkedIn-Posts mit hoher Reichweite zum Thema Elektromobilität?“**
-* **„Wie viele Artikel im Eco-Journal hatten mehr als 1.000 aktive Nutzer?“**
-* **„Welche Kanäle haben im Durchschnitt die beste EngagementRate?“**
+- **„Zeige mir die Top 5 Posts nach EngagementRate im letzten Monat.“**
+- **„Welche strategischen Themen wurden im Februar häufig kommuniziert?“**
+- **„Gab es LinkedIn-Posts mit hoher Reichweite zum Thema Elektromobilität?“**
+- **„Wie viele Artikel im Eco-Journal hatten mehr als 1.000 aktive Nutzer?“**
+- **„Welche Kanäle haben im Durchschnitt die beste EngagementRate?“**
 
 ---
 

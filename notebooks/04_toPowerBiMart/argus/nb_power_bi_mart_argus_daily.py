@@ -24,8 +24,8 @@
 # MAGIC
 # MAGIC ---
 # MAGIC * Versionen (aktuelle immer oben):
-# MAGIC - 15.11.2024 Svenja Schuder: update to overwrite method
-# MAGIC - 15.10.2024 Svenja Schuder: init
+# MAGIC - 15.11.2024 Max Mustermann: update to overwrite method
+# MAGIC - 15.10.2024 Max Mustermann: init
 # MAGIC
 
 # COMMAND ----------

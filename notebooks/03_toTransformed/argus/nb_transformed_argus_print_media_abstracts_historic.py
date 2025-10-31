@@ -15,7 +15,7 @@
 # MAGIC   
 # MAGIC ---
 # MAGIC * Versionen (aktuelle immer oben):     
-# MAGIC * 16.10.2024 Svenja Schuder: Init
+# MAGIC * 16.10.2024 Max Mustermann: Init
 # MAGIC
 # MAGIC
 # MAGIC

@@ -10,7 +10,7 @@
 # MAGIC * QUELLEN:  
 # MAGIC - datif_pz_uk_{}.03_cleaned.mkm_gestuetzte_markenbekanntheit(_bawue)
 # MAGIC - datif_pz_uk_{}.03_cleaned.mkm_reputationsindex(_bawue)
-# MAGIC - datif_pz_uk_{}.03_cleaned.mkm_ungestuetzte_enbw_themen(_bawue)
+# MAGIC - datif_pz_uk_{}.03_cleaned.mkm_ungestuetzte_A_themen(_bawue)
 # MAGIC - datif_pz_uk_{}.03_cleaned.mkm_ungestuetzte_energie_themen(_bawue)
 # MAGIC - datif_pz_uk_{}.03_cleaned.mkm_ungestuetzte_markenbekanntheit(_bawue)
 # MAGIC
@@ -18,7 +18,7 @@
 # MAGIC - datif_pz_uk_{}.04_power_bi_mart.mkm_consolidate
 # MAGIC - datif_pz_uk_{}.04_cleaned.mkm_gestuetzte_markenbekanntheit(_bawue)
 # MAGIC - datif_pz_uk_{}.04_cleaned.mkm_reputationsindex(_bawue)
-# MAGIC - datif_pz_uk_{}.04_cleaned.mkm_ungestuetzte_enbw_themen(_bawue)
+# MAGIC - datif_pz_uk_{}.04_cleaned.mkm_ungestuetzte_A_themen(_bawue)
 # MAGIC - datif_pz_uk_{}.04_cleaned.mkm_ungestuetzte_energie_themen(_bawue)
 # MAGIC - datif_pz_uk_{}.04_cleaned.mkm_ungestuetzte_markenbekanntheit(_bawue)
 # MAGIC
@@ -27,7 +27,7 @@
 # MAGIC * Versionen (aktuelle immer oben):
 # MAGIC - 25.09.2025 Minh Hieu Le: Sicherstellen, dass in den Zahlenspalten keine Nullwerte vorkommen
 # MAGIC - 04.09.2025 Minh Hieu Le: Anpassen, sodass redudante Tabellen nicht mehr geschrieben werden
-# MAGIC - 19.06.2025 Justin Stange-Heiduk: init
+# MAGIC - 19.06.2025 Max Mustermann: init
 
 # COMMAND ----------
 
@@ -49,8 +49,8 @@ table_names = [
     # "mkm_gestuetzte_markenbekanntheit_bawue",
     # "mkm_reputationsindex",
     # "mkm_reputationsindex_bawue",
-    # "mkm_ungestuetzte_enbw_themen",
-    # "mkm_ungestuetzte_enbw_themen_bawue",
+    # "mkm_ungestuetzte_A_themen",
+    # "mkm_ungestuetzte_A_themen_bawue",
     # "mkm_ungestuetzte_energie_themen",
     # "mkm_ungestuetzte_energie_themen_bawue",
     # "mkm_ungestuetzte_markenbekanntheit",

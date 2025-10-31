@@ -15,14 +15,14 @@
 # MAGIC - Unity-Catalog:
 # MAGIC - datif_pz_uk_{}.02_cleaned.mkm_gestuetzte_markenbekanntheit(_bawue)
 # MAGIC - datif_pz_uk_{}.02_cleaned.mkm_reputationsindex(_bawue)
-# MAGIC - datif_pz_uk_{}.02_cleaned.mkm_ungestuetzte_enbw-themen(_bawue)
+# MAGIC - datif_pz_uk_{}.02_cleaned.mkm_ungestuetzte_A-themen(_bawue)
 # MAGIC - datif_pz_uk_{}.02_cleaned.mkm_ungestuetzte_energie-themen(_bawue)
 # MAGIC - datif_pz_uk_{}.02_cleaned.mkm_ungestuetzte_markenbekanntheit(_bawue)
 # MAGIC
 # MAGIC
 # MAGIC ---
 # MAGIC * Versionen (aktuelle immer oben):
-# MAGIC - 12.06.2025 Justin Stange-Heiduk: init
+# MAGIC - 12.06.2025 Max Mustermann: init
 
 # COMMAND ----------
 

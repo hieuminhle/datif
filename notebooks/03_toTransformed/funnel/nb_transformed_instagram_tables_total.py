@@ -21,8 +21,8 @@
 # MAGIC ---
 # MAGIC * Versionen (aktuelle immer oben):
 # MAGIC - 16.10.2025 Minh Hieu Le: Korrektur der Formel von WeightedEngagement und EngagementRate für Insta Stories
-# MAGIC - 07.05.2025 Justin Stange-Heiduk: Instagram API Änderung Impression -> Views
-# MAGIC - 28.03.2025 Sebastian Fastert: Init
+# MAGIC - 07.05.2025 Max Mustermann: Instagram API Änderung Impression -> Views
+# MAGIC - 28.03.2025 Max Mustermann: Init
 # MAGIC
 
 # COMMAND ----------
